@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+  "name": "utasuke",
+  "version": "0.0.1",
+
+  "description": "東大生のためのブラウザ拡張機能",
+
+  "content_scripts": [
+    {
+      "matches": ["*://itc-lms.ecc.u-tokyo.ac.jp/*"],
+      "js": ["itc-lms.js"]
+    }
+  ]
+}

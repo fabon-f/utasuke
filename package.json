@@ -1,0 +1,33 @@
+{
+  "name": "utasuke",
+  "version": "0.0.1",
+  "description": "東大生のためのブラウザ拡張機能",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf build && node -e \"require('fs').mkdirSync('build',{recursive:true})\"",
+    "build:ts": "tsc -p . --outDir build",
+    "build:static": "cpx 'src/**/*.{html,json}' build",
+    "watch:ts": "tsc -p . --outDir build -w",
+    "watch:static": "cpx 'src/**/*.{html,json}' build --watch",
+    "build": "npm-run-all clean -p build:*",
+    "watch": "npm-run-all -p watch:*",
+    "run": "web-ext run --source-dir ./build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabon-f/utasuke.git"
+  },
+  "author": "fabon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fabon-f/utasuke/issues"
+  },
+  "homepage": "https://github.com/fabon-f/utasuke#readme",
+  "devDependencies": {
+    "cpx": "^1.5.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "typescript": "^3.9.6",
+    "web-ext": "^4.3.0"
+  }
+}
